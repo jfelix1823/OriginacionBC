@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  webappdocker:
+    image: ${DOCKER_REGISTRY}webappdocker
+    build:
+      context: .
+      dockerfile: WebAppDocker/Dockerfile
+
+  webmvc:
+    image: ${DOCKER_REGISTRY}webmvc
+    build:
+      context: .
+      dockerfile: src/Web/WebMVC/Dockerfile
+
+
+  identity.api:
+    image: ${DOCKER_REGISTRY}identityapi
+    build:
+      context: .
+      dockerfile: src/Services/Identity/Identity.API/Dockerfile
+
+
+  ocelotapigw:
+    image: ${DOCKER_REGISTRY}ocelotapigw
+    build:
+      context: .
+      dockerfile: src/ApiGateways/ApiGw-Base/OcelotApiGw/Dockerfile
+
